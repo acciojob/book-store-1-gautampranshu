@@ -60,11 +60,12 @@ public class BookController {
     public ResponseEntity<Book> getBookById(@PathVariable("id") String id)
     {
         int idx = Integer.parseInt(id);
-        for(int i=0; i<bookList.size(); i++)
-        {
-            if(bookList.get(i).getId() == idx) return new ResponseEntity(bookList.get(i) , HttpStatus.ACCEPTED);
-        }
-        return new ResponseEntity(new Book() , HttpStatus.ACCEPTED);
+//        for(int i=0; i<bookList.size(); i++)
+//        {
+//            if(bookList.get(i).getId() == idx) return new ResponseEntity(bookList.get(i) , HttpStatus.ACCEPTED);
+//        }
+//        return new ResponseEntity(new Book() , HttpStatus.ACCEPTED);
+        return new ResponseEntity(bookList.get(idx - 1) , HttpStatus.ACCEPTED);
     }
 
     // delete request /delete-book-by-id/{id}
