@@ -74,7 +74,8 @@ public class BookController {
      public ResponseEntity<String> deleteBookById(@PathVariable("id") String id)
      {
          int idx = Integer.parseInt(id);
-         for(int i=0; i<bookList.size(); i++) {
+         int len = bookList.size();
+         for(int i=0; i<len; i++) {
              if (bookList.get(i).getId() == idx) {
                  bookList.remove(i);
              }
@@ -87,7 +88,8 @@ public class BookController {
     public ResponseEntity<List<Book>> getAllBooks()
     {
         List<Book> ans = new ArrayList<>();
-        for(int i=0; i<bookList.size(); i++)
+        int len = bookList.size();
+        for(int i=0; i<len; i++)
         {
             ans.add(bookList.get(i));
         }
@@ -107,7 +109,8 @@ public class BookController {
     @GetMapping("/get-books-by-author")
     public ResponseEntity<Book> getBooksByAuthor(@RequestParam("author") String author)
     {
-        for(int i=0; i<bookList.size(); i++) {
+        int len = bookList.size();
+        for(int i=0; i<len; i++) {
             if (bookList.get(i).getAuthor().equals(author)) {
                 return new ResponseEntity(bookList.get(i) , HttpStatus.ACCEPTED);
             }
@@ -120,7 +123,8 @@ public class BookController {
     @GetMapping("/get-books-by-genre")
     public ResponseEntity<Book> getBooksByGenre(@RequestParam("genre") String g)
     {
-        for(int i=0; i<bookList.size(); i++) {
+        int len = bookList.size();
+        for(int i=0; i<len; i++) {
             if (bookList.get(i).getGenre().equals(g)) {
                 return new ResponseEntity(bookList.get(i) , HttpStatus.ACCEPTED);
             }
